@@ -36,4 +36,15 @@ jobs:
 
       - name: Force Failure
         run: test -z $(go fmt ./...)
+  linting:
+    name: Linting
+    runs-on: ubuntu-latest
 
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 1
+
+    - uses: dominikh/staticcheck-action@v1
+      with:
+        version: "latest"
