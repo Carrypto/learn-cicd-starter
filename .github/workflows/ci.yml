@@ -20,9 +20,9 @@ jobs:
 
       - name: Force Failure
         run: go test ./... -cover
-  
+
   style:
-    name:style
+    name: style
     runs-on: ubuntu-latest
 
     steps:
