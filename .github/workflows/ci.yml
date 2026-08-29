@@ -39,10 +39,8 @@ jobs:
       - name: Force Failure
         run: test -z $(go fmt ./...)
 
-      - name: statccheck
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 1
-      - uses: dominikh/staticcheck-action@v1
-        with:
-          version: "latest"
+      - name: Install staticcheck
+        run: go install honnef.co/go/tools/cmd/staticcheck@latest
+
+      - name: staticcheck
+        run: staticcheck ./...
